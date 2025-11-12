@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct Grammar_AppApp: App {
+struct Grammar_App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            IntroView()
         }
     }
 }
