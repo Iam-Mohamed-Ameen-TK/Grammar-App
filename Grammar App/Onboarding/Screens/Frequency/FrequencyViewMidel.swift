@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class FrequencyViewModel: ObservableObject {
-    @Published var selectedOption: OnboardingOption?
+    @Published var selectedOption: FrequencyModel?
     
     let question = """
     How often do you
@@ -18,18 +18,18 @@ class FrequencyViewModel: ObservableObject {
     messages daily?
     """
     
-    let options: [OnboardingOption] = [
-        OnboardingOption(id: "rare", emoji: "👀", title: "Rarely (1–2 times)"),
-        OnboardingOption(id: "sometimes", emoji: "🌟", title: "Sometimes (3–5 times)"),
-        OnboardingOption(id: "often", emoji: "💪", title: "Often (6–10 times)"),
-        OnboardingOption(id: "all_day", emoji: "🧘", title: "All day long (10+ times)")
+    let options: [FrequencyModel] = [
+        FrequencyModel(id: "rare", emoji: "👀", title: "Rarely (1–2 times)"),
+        FrequencyModel(id: "sometimes", emoji: "🌟", title: "Sometimes (3–5 times)"),
+        FrequencyModel(id: "often", emoji: "💪", title: "Often (6–10 times)"),
+        FrequencyModel(id: "all_day", emoji: "🧘", title: "All day long (10+ times)")
     ]
     
     var canContinue: Bool {
         selectedOption != nil
     }
     
-    func selectOption(_ option: OnboardingOption) {
+    func selectOption(_ option: FrequencyModel) {
         selectedOption = option
     }
     
