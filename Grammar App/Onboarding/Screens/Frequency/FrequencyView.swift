@@ -76,7 +76,7 @@ struct FrequencyView: View {
             .padding(.bottom, 4)
             
             // MARK: - NavigationLink (Hidden)
-            NavigationLink(destination: WritingAppsView(), isActive: $navigateToWritingApps) {
+            NavigationLink(destination: ExperienceView(), isActive: $navigateToWritingApps) {
                 EmptyView()
             }
             .hidden()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GoalOption: Identifiable, Equatable {
+struct GoalModel: Identifiable, Equatable {
     let id = UUID()
     let title: String
     let emoji: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OnboardingOption: Identifiable, Equatable {
+struct ExperienceModel: Identifiable, Equatable {
     let id: String
     let emoji: String
     let title: String

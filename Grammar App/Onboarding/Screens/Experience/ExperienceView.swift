@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct WritingAppsView: View {
-    @StateObject private var viewModel = WritingAppsViewModel()
+struct ExperienceView: View {
+    @StateObject private var viewModel = ExperienceViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     // Navigation trigger
@@ -97,7 +97,7 @@ struct WritingAppsView: View {
 struct WritingAppsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            WritingAppsView()
+            ExperienceView()
         }
     }
 }

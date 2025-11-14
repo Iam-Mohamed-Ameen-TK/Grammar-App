@@ -9,20 +9,20 @@ import Foundation
 
 final class GoalViewModel: ObservableObject {
     
-    @Published var selectedOption: GoalOption? = nil
+    @Published var selectedOption: GoalModel? = nil
     
-    @Published var options: [GoalOption] = [
-        GoalOption(title: "Write clearly and confidently", emoji: "💬"),
-        GoalOption(title: "Avoid grammar or tone mistakes", emoji: "✅"),
-        GoalOption(title: "Sound professional and natural", emoji: "💼"),
-        GoalOption(title: "Check for plagiarism or originality", emoji: "🔍"),
-        GoalOption(title: "Write faster and smarter", emoji: "⚡️")
+    @Published var options: [GoalModel] = [
+        GoalModel(title: "Write clearly and confidently", emoji: "💬"),
+        GoalModel(title: "Avoid grammar or tone mistakes", emoji: "✅"),
+        GoalModel(title: "Sound professional and natural", emoji: "💼"),
+        GoalModel(title: "Check for plagiarism or originality", emoji: "🔍"),
+        GoalModel(title: "Write faster and smarter", emoji: "⚡️")
     ]
     
     let question = "What’s your main\nwriting goal right now?"
     
     
-    func selectOption(_ option: GoalOption) {
+    func selectOption(_ option: GoalModel) {
         selectedOption = option
     }
     
