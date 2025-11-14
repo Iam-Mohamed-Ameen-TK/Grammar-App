@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MotiveView: View {
-    @StateObject private var viewModel = GoalBarriersViewModel()
+    @StateObject private var viewModel = MotiveViewModel()
     @Environment(\.dismiss) private var dismiss
     
     @State private var goToChallenge = false

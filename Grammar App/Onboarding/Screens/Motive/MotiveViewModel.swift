@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-class GoalBarriersViewModel: ObservableObject {
-    @Published var selectedOption: GoalBarriersModel?
+class MotiveViewModel: ObservableObject {
+    @Published var selectedOption: MotiveModel?
 
     let question = """
     What's stopping
@@ -17,19 +17,19 @@ class GoalBarriersViewModel: ObservableObject {
     your writing goal?
     """
 
-    let options: [GoalBarriersModel] = [
-        GoalBarriersModel(id: "time", emoji: "🕰️", title: "Not enough time to edit or improve"),
-        GoalBarriersModel(id: "grammar", emoji: "😕", title: "Unsure how to fix grammar or tone"),
-        GoalBarriersModel(id: "examples", emoji: "💡", title: "Need better examples or suggestions"),
-        GoalBarriersModel(id: "confidence", emoji: "📚", title: "Lack of confidence in writing skills"),
-        GoalBarriersModel(id: "focus", emoji: "⚡", title: "Hard to stay focused or consistent")
+    let options: [MotiveModel] = [
+        MotiveModel(id: "time", emoji: "🕒", title: "Not enough time to edit or improve"),
+        MotiveModel(id: "grammar", emoji: "😕", title: "Unsure how to fix grammar or tone"),
+        MotiveModel(id: "examples", emoji: "💡", title: "Need better examples or suggestions"),
+        MotiveModel(id: "confidence", emoji: "📚", title: "Lack of confidence in writing skills"),
+        MotiveModel(id: "focus", emoji: "⚡", title: "Hard to stay focused or consistent")
     ]
 
     var canContinue: Bool {
         selectedOption != nil
     }
 
-    func selectOption(_ option: GoalBarriersModel) {
+    func selectOption(_ option: MotiveModel) {
         selectedOption = option
     }
 
