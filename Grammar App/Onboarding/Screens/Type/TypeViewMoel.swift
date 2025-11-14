@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-class FileTypeViewModel: ObservableObject {
-    @Published var selectedOption: FileTypeModel?
+class TypeViewModel: ObservableObject {
+    @Published var selectedOption: TypeModel?
 
     let question = """
     Which types of
@@ -17,18 +17,18 @@ class FileTypeViewModel: ObservableObject {
     or grammar check?
     """
 
-    let options: [FileTypeModel] = [
-        FileTypeModel(id: "img", emoji: "🖼️", title: "Images (JPG, PNG)"),
-        FileTypeModel(id: "pdf", emoji: "📄", title: "PDFs"),
-        FileTypeModel(id: "excel", emoji: "📊", title: "Excel or spreadsheets"),
-        FileTypeModel(id: "other", emoji: "📝", title: "Others")
+    let options: [TypeModel] = [
+        TypeModel(id: "img", emoji: "🖼️", title: "Images (JPG, PNG)"),
+        TypeModel(id: "pdf", emoji: "📄", title: "PDFs"),
+        TypeModel(id: "excel", emoji: "📊", title: "Excel or spreadsheets"),
+        TypeModel(id: "other", emoji: "📝", title: "Others")
     ]
 
     var canContinue: Bool {
         selectedOption != nil
     }
 
-    func selectOption(_ option: FileTypeModel) {
+    func selectOption(_ option: TypeModel) {
         selectedOption = option
     }
 

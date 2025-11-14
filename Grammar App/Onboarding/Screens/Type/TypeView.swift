@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TypeView: View {
-    @StateObject private var viewModel = FileTypeViewModel()
+    @StateObject private var viewModel = TypeViewModel()
     @Environment(\.dismiss) private var dismiss
     
     @State private var goToMotive = false
