@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SourceView: View {
-    @StateObject private var viewModel = HearAboutUsViewModel()
+    @StateObject private var viewModel = SourceViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State private var navigateToType = false
     

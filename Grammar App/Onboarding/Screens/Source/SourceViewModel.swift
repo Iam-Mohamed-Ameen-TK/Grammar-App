@@ -8,20 +8,20 @@
 import Foundation
 import SwiftUI
 
-class HearAboutUsViewModel: ObservableObject {
+class SourceViewModel: ObservableObject {
     
-    @Published var selectedOption: HearAboutUsOption? = nil
+    @Published var selectedOption: SourceModel? = nil
     
-    @Published var options: [HearAboutUsOption] = [
-        HearAboutUsOption(id: 0, imageName: "friends",   title: "Friend or family"),
-        HearAboutUsOption(id: 1, imageName: "appstore",  title: "App Store"),
-        HearAboutUsOption(id: 2, imageName: "google",    title: "Google"),
-        HearAboutUsOption(id: 3, imageName: "facebook",  title: "Facebook"),
-        HearAboutUsOption(id: 4, imageName: "tiktok",    title: "TikTok"),
-        HearAboutUsOption(id: 5, imageName: "instagram", title: "Instagram")
+    @Published var options: [SourceModel] = [
+        SourceModel(id: 0, imageName: "friends",   title: "Friend or family"),
+        SourceModel(id: 1, imageName: "appstore",  title: "App Store"),
+        SourceModel(id: 2, imageName: "google",    title: "Google"),
+        SourceModel(id: 3, imageName: "facebook",  title: "Facebook"),
+        SourceModel(id: 4, imageName: "tiktok",    title: "TikTok"),
+        SourceModel(id: 5, imageName: "instagram", title: "Instagram")
     ]
     
-    func selectOption(_ option: HearAboutUsOption) {
+    func selectOption(_ option: SourceModel) {
         selectedOption = option
     }
 }
