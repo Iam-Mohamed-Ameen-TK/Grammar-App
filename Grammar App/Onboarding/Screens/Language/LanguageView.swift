@@ -1,5 +1,5 @@
 //
-//  ChallengeView.swift
+//  LanguageView.swift
 //  Grammar App
 //
 //  Created by Mohamed Ameen on 14/11/25.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ChallengeView: View {
-    @StateObject private var viewModel = ChallengeViewModel()
+struct LanguageView: View {
+    @StateObject private var viewModel = LanguageViewModel()
     @Environment(\.dismiss) private var dismiss
     
-    @State private var goToImproveView = false   
+    @State private var goToSpeed = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -64,15 +64,16 @@ struct ChallengeView: View {
             // MARK: - Continue Button
             PrimaryButton(title: "Continue") {
                 viewModel.handleContinue()
-                goToImproveView = true     
+                goToSpeed = true
             }
             .disabled(!viewModel.canContinue)
             .opacity(viewModel.canContinue ? 1 : 0.5)
             .padding(.horizontal, 4)
             .padding(.bottom, 6)
 
-            // MARK: - Navigation to ImproveView
-            NavigationLink(destination: ImproveView(), isActive: $goToImproveView) {
+
+            // MARK: - Navigation to SpeedView
+            NavigationLink(destination: SpeedView(), isActive: $goToSpeed) {
                 EmptyView()
             }
             .hidden()
@@ -82,5 +83,5 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    ChallengeView()
+    LanguageView()
 }

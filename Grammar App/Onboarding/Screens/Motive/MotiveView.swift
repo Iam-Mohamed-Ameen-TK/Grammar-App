@@ -11,7 +11,7 @@ struct MotiveView: View {
     @StateObject private var viewModel = MotiveViewModel()
     @Environment(\.dismiss) private var dismiss
     
-    @State private var goToChallenge = false
+    @State private var goToImprove = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -64,15 +64,15 @@ struct MotiveView: View {
             // MARK: - Continue Button
             PrimaryButton(title: "Continue") {
                 viewModel.handleContinue()
-                goToChallenge = true      
+                goToImprove = true
             }
             .disabled(!viewModel.canContinue)
             .opacity(viewModel.canContinue ? 1 : 0.5)
             .padding(.horizontal, 4)
             .padding(.bottom, 6)
 
-            // MARK: - Navigation to ChallengeView
-            NavigationLink(destination: ChallengeView(), isActive: $goToChallenge) {
+            // MARK: - Navigation to ImproveView
+            NavigationLink(destination: ImproveView(), isActive: $goToImprove) {
                 EmptyView()
             }
             .hidden()
