@@ -9,13 +9,16 @@ import SwiftUI
 
 struct FrequencyView: View {
     @StateObject private var viewModel = FrequencyViewModel()
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    @State private var navigateToWritingApps = false
     
     var body: some View {
         VStack(spacing: 0) {
+            
+            // MARK: - Top Bar
             HStack(spacing: 1) {
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }) {
                     Image("back_icon")
                         .resizable()
@@ -29,16 +32,17 @@ struct FrequencyView: View {
             .padding(.horizontal, 19)
             .padding(.top, -30)
             
+            // MARK: - Main Content
             ScrollView {
                 VStack(alignment: .leading, spacing: 15) {
                     Text(viewModel.question)
                         .font(.system(size: 32, weight: .bold))
-                           .foregroundColor(.black)
-                           .multilineTextAlignment(.leading)
-                           .lineLimit(nil)
-                           .fixedSize(horizontal: false, vertical: true)
-                           .padding(.horizontal, 14)
-                           .padding(.top, -8)
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.horizontal, 14)
+                        .padding(.top, -8)
                     
                     VStack(spacing: 8) {
                         ForEach(viewModel.options) { option in
@@ -58,22 +62,29 @@ struct FrequencyView: View {
             
             Spacer()
             
+            // MARK: - Continue Button
             PrimaryButton(
                 title: "Continue",
-                action: viewModel.handleContinue
+                action: {
+                    viewModel.handleContinue()
+                    navigateToWritingApps = true
+                }
             )
-            .disabled(true)
-            .opacity(0.5)  
+            .disabled(!viewModel.canContinue)   
+            .opacity(viewModel.canContinue ? 1.0 : 0.5)
             .padding(.horizontal, 4)
             .padding(.bottom, 4)
+            
+            // MARK: - NavigationLink (Hidden)
+            NavigationLink(destination: WritingAppsView(), isActive: $navigateToWritingApps) {
+                EmptyView()
+            }
+            .hidden()
         }
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
-// MARK: - Preview
-struct FrequencyView_Previews: PreviewProvider {
-    static var previews: some View {
-        FrequencyView()
-    }
+#Preview {
+    FrequencyView()
 }
